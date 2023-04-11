@@ -1,0 +1,48 @@
+﻿@page
+@model WebApplication1.Pages.Books.fetchBooksModel
+@{
+
+}
+<br />
+<div>
+    <a class = "btn-primary btn-sm" href ="/Books/AddBook">Add a book</a>
+</div>
+<h1> BOOKS LIST </h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                BOOK CODE
+            </th>
+            <th>
+                BOOK TITLE
+            </th>   
+            <th>
+                AUTHOR
+            </th>
+            <th>
+                PUBLICATION
+            </th>
+            <th>
+                PRICE
+            </th>
+            <th>
+                UPDATE
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Books b in Model.booksList)
+        {
+            <tr>
+                <td> @b.BookCode </td>
+                <td> @b.BookTitle </td>
+                <td> @b.Author </td>
+                <td> @b.Publication </td>
+                <td> @b.Price </td>
+
+                <td> <a class="btn-primary" href="/Books/UpdateBookDetails?BookCode=@b.BookCode"> Edit </a></td>
+            </tr>
+        }
+    </tbody>
+ </table>
